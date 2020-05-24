@@ -1,74 +1,92 @@
 [
   {
     "english": "Normal",
-    "color": "#f0dea2"
+    "color": "rgba(240, 222, 162, .4)",
+    "boxColor": "rgba(240, 222, 162, 1)"
   },
   {
     "english": "Fighting",
-    "color": "#6e5a5b"
+    "color": "rgba(166, 112, 103, .4)",
+    "boxColor": "rgba(166, 112, 103, 1.00)"
   },
   {
     "english": "Flying",
-    "color": "#8ccebc"
+    "color": "rgba(140, 206, 188, .4)",
+    "boxColor": "rgba(140, 206, 188, 1)"
   },
   {
     "english": "Poison",
-    "color": "#a483c5"
+    "color": "rgba(164, 131, 197, .4)",
+    "boxColor": "rgba(164, 131, 197, 1)"
   },
   {
     "english": "Ground",
-    "color": "#965451"
+    "color": "rgba(150, 84, 81, .4)",
+    "boxColor": "rgba(150, 84, 81, 1)"
   },
   {
     "english": "Rock",
-    "color": "#9b8649"
+    "color": "rgba(155, 134, 73, .4)",
+    "boxColor": "rgba(155, 134, 73, 1)"
   },
   {
     "english": "Bug",
-    "color": "#6a8b5a"
+    "color": "rgba(106, 139, 90, .4)",
+    "boxColor": "rgba(106, 139, 90, 1)"
   },
   {
     "english": "Ghost",
-    "color": "#d4abcc"
+    "color": "rgba(212, 171, 204, .4)",
+    "boxColor": "rgba(212, 171, 204, 1)"
   },
   {
     "english": "Steel",
-    "color": "#7b94a4"
+    "color": "rgba(123, 148, 164, .4)",
+    "boxColor": "rgba(123, 148, 164, 1)"
   },
   {
     "english": "Fire",
-    "color": "#e64110"
+    "color": "rgba(230, 65, 16, .4)",
+    "boxColor": "rgba(230, 65, 16, 1)"
   },
   {
     "english": "Water",
-    "color": "#8bacf6"
+    "color": "rgba(139, 172, 246, .4)",
+    "boxColor": "rgba(139, 172, 246, 1)"
   },
   {
     "english": "Grass",
-    "color": "#7dd572"
+    "color": "rgba(125, 213, 114, .4)",
+    "boxColor": "rgba(125, 213, 114, 1)"
   },
   {
     "english": "Electric",
-    "color": "#f6bd20"
+    "color": "rgba(246, 189, 32, .4)",
+    "boxColor": "rgba(246, 189, 32, 1)"
   },
   {
     "english": "Psychic",
-    "color": "#de9fff"
+    "color": "rgba(222, 159, 255, .4)",
+    "boxColor": "rgba(222, 159, 255, 1)"
   },
   {
     "english": "Ice",
-    "color": "#70b9da"
+    "color": "rgba(112, 185, 218, .4)",
+    "boxColor": "rgba(112, 185, 218, 1)"
   },
   {
     "english": "Dragon",
-    "color": "#de7339"
+    "color": "rgba(222, 115, 57, .4)",
+    "boxColor": "rgba(222, 115, 57, 1)"
   },
   {
     "english": "Dark",
-    "color": "#45454d"
+    "color": "rgba(131, 139, 156, .4)",
+    "boxColor": "rgba(131, 139, 156, 1.00)"
   },
   {
     "english": "Fairy",
-    "color": "#ffc5b4"
+    "color": "rgba(255, 197, 180, .4)",
+    "boxColor": "rgba(255, 197, 180, 1)"
   }
 ]

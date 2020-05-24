@@ -29,6 +29,7 @@ const Types = ({ changeUrl }) => {
               changeUrl={changeUrl}
               key={type.english}
               backgroundColor={type.color || '#f5d5e7'}
+              type={type}
               pokemonData={pokemonData}
               chosen={getPokemonFromUrl(type.english)}
               name={type.english}

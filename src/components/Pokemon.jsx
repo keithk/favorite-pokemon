@@ -7,11 +7,12 @@ const Pokemon = ({
   width = 'w-1/2',
   onClick,
   backgroundColor,
+  type,
 }) => {
   const sprite = `https://play.pokemonshowdown.com/sprites/gen5/${details.name.toLowerCase()}.png`;
   const classNames = className(
     'object-center text-center text-grey-dark flex-grow-0',
-    { 'sm:w-1/2 md:w-1/6': !onClick },
+    { 'sm:w-1/3 md:w-1/4 lg:w-1/6': !onClick },
     { 'w-full': onClick },
   );
   const classNamesBackground = className(
@@ -37,8 +38,8 @@ const Pokemon = ({
           className="cursor-pointer inline"
         />
         <div
-          className="capitalize font-bold w-full p-1 mt-2 bg-opacity-75 striped"
-          style={{ backgroundColor }}
+          className="capitalize font-bold w-full p-1 mt-2 bg-opacity-75 text-gray-900 striped"
+          style={{ backgroundColor: type.boxColor }}
         >
           {details.name}
         </div>

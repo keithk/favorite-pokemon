@@ -22,7 +22,7 @@ const reducer = (state, action) => {
   }
 };
 
-const Type = ({ name, pokemonData, backgroundColor }) => {
+const Type = ({ name, pokemonData, backgroundColor, type }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [hash, setHash] = useHash(name);
 
@@ -84,6 +84,7 @@ const Type = ({ name, pokemonData, backgroundColor }) => {
             details={state.chosen}
             onClick={handleResetPokemon}
             backgroundColor={backgroundColor}
+            type={type}
             width="w-full"
           />
         </div>
@@ -96,6 +97,7 @@ const Type = ({ name, pokemonData, backgroundColor }) => {
           {state.pokemon.map((pokemon) => (
             <Pokemon
               key={pokemon.id}
+              type={type}
               choosePokemon={handleChoosePokemon}
               details={pokemon}
             />
