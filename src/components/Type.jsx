@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import useHash from '../hooks/useHash';
 import Pokemon from './Pokemon';
 
@@ -12,8 +12,23 @@ const initialState = {
   openChoose: false,
 };
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_POKEMON':
+      return { pokemon: action.payload };
+    case 'SET_LOADED':
+      return { loaded: !statetrue };
+    case 'SET_CHOSEN':
+      return { chosen: action.payload };
+    case 'SET_OPEN':
+      return { openChoose: true, width: 'full' };
+    case 'SET_CLOSED':
+      return { openChoose: false, width: defaultWidth };
+  }
+};
+
 const Type = ({ name, changeUrl, chosen, pokemonData }) => {
-  const [state, setState] = useState(initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const [hash, setHash] = useHash(name);
 
@@ -21,22 +36,20 @@ const Type = ({ name, changeUrl, chosen, pokemonData }) => {
     const type = name;
     const pokemonOfThisType = pokemonData.filter((p) => {
       if (p.name === hash) {
-        console.log('name met hash', p.name, hash);
-        setState({ ...state, chosen: p });
+        dispatch({ type: 'SET_CHOSEN', payload: p });
       }
       return p.types.includes(type);
     });
-    setState({ ...state, pokemon: pokemonOfThisType, loaded: true });
+    dispatch({ type: 'SET_POKEMON', payload: pokemonOfThisType });
   }, []);
 
   const handleResetPokemon = () => {
-    setState({ ...state, chosen: null });
+    dispatch({ type: 'SET_CHOSEN', payload: null });
     setHash('');
   };
 
   const handleClickOpen = () => {
-    console.log('this is a change');
-    setState({ ...state, openChoose: true, width: 'full' });
+    dispatch({ type: 'SET_OPEN' });
   };
 
   const handleChoosePokemon = (pokemon) => {
@@ -46,6 +59,8 @@ const Type = ({ name, changeUrl, chosen, pokemonData }) => {
       openChoose: false,
       width: defaultWidth,
     });
+    dispatch({ type: 'SET_CHOSEN', payload: pokemon });
+    dispatch({ type: 'SET_CLOSED' });
     setHash(pokemon.name);
   };
 
