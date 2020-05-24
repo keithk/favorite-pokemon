@@ -1,37 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import queryString from 'query-string';
+import useHash from '../hooks/useHash';
 import Pokemon from './Pokemon';
 
 const defaultWidth = 'w-1/2 sm:w-1/2 md:w-48 lg:w-48';
 
+const initialState = {
+  loaded: false,
+  width: defaultWidth,
+  pokemon: false,
+  chosen: null,
+  openChoose: false,
+};
+
 const Type = ({ name, changeUrl, chosen, pokemonData }) => {
-  const [state, setState] = useState({
-    loaded: false,
-    width: defaultWidth,
-    pokemon: false,
-    chosen: null,
-    openChoose: false,
-  });
+  const [state, setState] = useState(initialState);
+
+  const [hash, setHash] = useHash(name);
 
   useEffect(() => {
     const type = name;
     const pokemonOfThisType = pokemonData.filter((p) => {
-      if (p.name === chosen) {
+      if (p.name === hash) {
+        console.log('name met hash', p.name, hash);
         setState({ ...state, chosen: p });
       }
-      return p.types?.includes(type);
+      return p.types.includes(type);
     });
     setState({ ...state, pokemon: pokemonOfThisType, loaded: true });
   }, []);
 
   const handleResetPokemon = () => {
     setState({ ...state, chosen: null });
-    let params = queryString.parse(location.hash);
-    delete params[name];
-    const stringified = queryString.stringify(params);
-    location.hash = stringified;
-    changeUrl(location.hash);
+    setHash('');
   };
 
   const handleClickOpen = () => {
@@ -46,12 +46,7 @@ const Type = ({ name, changeUrl, chosen, pokemonData }) => {
       openChoose: false,
       width: defaultWidth,
     });
-    // Set it in the URL, for "saving"
-    let params = queryString.parse(location.hash);
-    params[name] = pokemon.name.english;
-    const stringified = queryString.stringify(params);
-    location.hash = stringified;
-    changeUrl(location.hash);
+    setHash(pokemon.name);
   };
 
   const pokemon = state.pokemon;
