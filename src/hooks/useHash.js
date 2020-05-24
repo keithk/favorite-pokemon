@@ -1,5 +1,5 @@
 // https://github.com/hejmsdz/use-hash-param/blob/master/src/index.js
-const { useState, useEffect, useCallback } = require('react');
+import { useState, useEffect, useCallback } from 'react';
 
 const getHashSearchParams = (location) => {
   const hash = location.hash.slice(1);
@@ -45,4 +45,5 @@ const useHashParam = (key, defaultValue) => {
 
   return [innerValue || defaultValue, setValue];
 };
-module.exports = useHashParam;
+
+export default useHashParam;
