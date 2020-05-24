@@ -1,7 +1,12 @@
 module.exports = {
   purge: [],
   theme: {
-    extend: {},
+    fontFamily: {
+      'sans': ['ISO', '-apple-system', 'BlinkMacSystemFont'],
+    },
+    extend: {
+
+    },
   },
   variants: {},
   plugins: [],

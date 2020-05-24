@@ -7,5 +7,30 @@
 .striped {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jZ3MOw6AMAyD4R/5JByq4v5L507MLEFCpY8kXhIP/gRcwA00EpGNC1AziGxUs4jsphF9/hSiroeRHggjIyCEzAA3sgJcyA7YIh5giXiBKRIBhkgU+CFHAnhzAuUBb3g5IHWhKbwAAAAASUVORK5CYII=);
   box-sizing: border-box;
-  background-size: 8px;
+  background-size: 4px;
+}
+
+@font-face {
+  font-family: 'ISO';
+  src: url('/iso-regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'ISO';
+  src: url('/iso-bold.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'ISO';
+  src: url('/iso-black.woff') format('woff');
+  font-weight: 900;
+}
+
+body {
+  font-family: 'ISO' !important;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jZ3MOw6AMAyD4R/5JByq4v5L507MLEFCpY8kXhIP/gRcwA00EpGNC1AziGxUs4jsphF9/hSiroeRHggjIyCEzAA3sgJcyA7YIh5giXiBKRIBhkgU+CFHAnhzAuUBb3g5IHWhKbwAAAAASUVORK5CYII=);
+  box-sizing: border-box;
+  background-size: 4px;
 }

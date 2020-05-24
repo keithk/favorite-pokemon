@@ -1,92 +1,74 @@
 [
   {
     "english": "Normal",
-    "chinese": "一般",
-    "japanese": "ノーマル"
+    "color": "#f0dea2"
   },
   {
     "english": "Fighting",
-    "chinese": "格斗",
-    "japanese": "かくとう"
+    "color": "#6e5a5b"
   },
   {
     "english": "Flying",
-    "chinese": "飞行",
-    "japanese": "ひこう"
+    "color": "#8ccebc"
   },
   {
     "english": "Poison",
-    "chinese": "毒",
-    "japanese": "どく"
+    "color": "#a483c5"
   },
   {
     "english": "Ground",
-    "chinese": "地上",
-    "japanese": "じめん"
+    "color": "#965451"
   },
   {
     "english": "Rock",
-    "chinese": "岩石",
-    "japanese": "いわ"
+    "color": "#9b8649"
   },
   {
     "english": "Bug",
-    "chinese": "虫",
-    "japanese": "むし"
+    "color": "#6a8b5a"
   },
   {
     "english": "Ghost",
-    "chinese": "幽灵",
-    "japanese": "ゴースト"
+    "color": "#d4abcc"
   },
   {
     "english": "Steel",
-    "chinese": "钢",
-    "japanese": "はがね"
+    "color": "#7b94a4"
   },
   {
     "english": "Fire",
-    "chinese": "炎",
-    "japanese": "ほのお"
+    "color": "#e64110"
   },
   {
     "english": "Water",
-    "chinese": "水",
-    "japanese": "みず"
+    "color": "#8bacf6"
   },
   {
     "english": "Grass",
-    "chinese": "草",
-    "japanese": "くさ"
+    "color": "#7dd572"
   },
   {
     "english": "Electric",
-    "chinese": "电",
-    "japanese": "でんき"
+    "color": "#f6bd20"
   },
   {
     "english": "Psychic",
-    "chinese": "超能",
-    "japanese": "エスパー"
+    "color": "#de9fff"
   },
   {
     "english": "Ice",
-    "chinese": "冰",
-    "japanese": "こおり"
+    "color": "#70b9da"
   },
   {
     "english": "Dragon",
-    "chinese": "龙",
-    "japanese": "ドラゴン"
+    "color": "#de7339"
   },
   {
     "english": "Dark",
-    "chinese": "恶",
-    "japanese": "あく"
+    "color": "#45454d"
   },
   {
     "english": "Fairy",
-    "chinese": "妖精",
-    "japanese": "フェアリー"
+    "color": "#ffc5b4"
   }
 ]

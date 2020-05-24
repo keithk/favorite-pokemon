@@ -22,12 +22,13 @@ const Types = ({ changeUrl }) => {
   const [state, setState] = useState({ types: [] });
   return (
     <div className="">
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-1">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-1">
         {types.map((type) => {
           return (
             <Type
               changeUrl={changeUrl}
               key={type.english}
+              backgroundColor={type.color || '#f5d5e7'}
               pokemonData={pokemonData}
               chosen={getPokemonFromUrl(type.english)}
               name={type.english}

@@ -3,10 +3,7 @@ import useHash from '../hooks/useHash';
 import Pokemon from './Pokemon';
 import className from 'classnames';
 
-const defaultWidth = 'w-full';
-
 const initialState = {
-  width: defaultWidth,
   pokemon: false,
   chosen: null,
   openChoose: false,
@@ -19,13 +16,13 @@ const reducer = (state, action) => {
     case 'SET_CHOSEN':
       return { ...state, chosen: action.payload };
     case 'SET_OPEN':
-      return { ...state, openChoose: true, width: 'full' };
+      return { ...state, openChoose: true };
     case 'SET_CLOSED':
-      return { ...state, openChoose: false, width: defaultWidth };
+      return { ...state, openChoose: false };
   }
 };
 
-const Type = ({ name, pokemonData }) => {
+const Type = ({ name, pokemonData, backgroundColor }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [hash, setHash] = useHash(name);
 
@@ -62,7 +59,14 @@ const Type = ({ name, pokemonData }) => {
     return a.id - b.id;
   });
 
-  const classNames = className(state.width, 'bg-gray-100', '');
+  const classNames = className(
+    {
+      'col-span-2 md:col-span-6': state.openChoose,
+    },
+    'w-full',
+    'bg-gray-100',
+    'p-2',
+  );
   const buttonClassNames = className(
     { striped: !state.chosen },
     'w-100 text-gray-200 my-2 p-2 bg-gray-800 border border-grey-200 rounded cursor-pointer',
@@ -72,20 +76,16 @@ const Type = ({ name, pokemonData }) => {
     <div className={classNames}>
       <div className="flex justify-center">
         <h2 className="text-xl font-bold">{name}</h2>
-        {state.chosen && (
-          <div className="text-right cursor-pointer w-full font-bold text-bold text-lg">
-            <button
-              onClick={handleResetPokemon}
-              className="px-1 bg-grey-light rounded bg-gray-800 text-gray-200 shadow-sm"
-            >
-              X
-            </button>
-          </div>
-        )}
       </div>
       {state.chosen && (
         <div>
-          <Pokemon choosePokemon={handleChoosePokemon} details={state.chosen} />
+          <Pokemon
+            choosePokemon={handleChoosePokemon}
+            details={state.chosen}
+            onClick={handleResetPokemon}
+            backgroundColor={backgroundColor}
+            width="w-full"
+          />
         </div>
       )}
       {state.openChoose === true && (

@@ -8,8 +8,8 @@ const Index = () => {
   const [hash, setHash] = useHashParam('');
 
   return (
-    <div className="">
-      <h1>Your Favorite Pokemon</h1>
+    <div className="m-2">
+      <h1 className="text-3xl font-bold">Your Favorite Pokemon</h1>
       <Types changeUrl={setHash} />
       <SavedUrl url={`https://favorite-pokemon.glitch.me/${hash}`} />
     </div>
