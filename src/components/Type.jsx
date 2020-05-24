@@ -80,6 +80,7 @@ const Type = ({ name, pokemonData, backgroundColor, type }) => {
       {state.chosen && (
         <div>
           <Pokemon
+            key={pokemon.name}
             choosePokemon={handleChoosePokemon}
             details={state.chosen}
             onClick={handleResetPokemon}
@@ -96,7 +97,7 @@ const Type = ({ name, pokemonData, backgroundColor, type }) => {
         >
           {state.pokemon.map((pokemon) => (
             <Pokemon
-              key={pokemon.id}
+              key={pokemon.name}
               type={type}
               choosePokemon={handleChoosePokemon}
               details={pokemon}
