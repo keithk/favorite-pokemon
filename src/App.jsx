@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Types from './components/Types';
+import SavedUrl from './components/SavedUrl';
+import useHashParam from './hooks/useHash';
+import './styles.css';
 
-function App() {
-  // TODO: Remove before merging, this was just for fast-refresh testing
-  const [counter, setCounter] = useState(5);
-  setTimeout(() => setCounter(counter + 1), 1000);
+const Index = () => {
+  const [hash, setHash] = useHashParam('');
+
   return (
-    <div className={'App'}>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {counter} Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-3">
+      <h1>Your Favorite Pokemon</h1>
+      <Types changeUrl={setHash} />
+      <SavedUrl url={`https://favorite-pokemon.glitch.me/${hash}`} />
     </div>
   );
-}
+};
 
-export default App;
+export default Index;

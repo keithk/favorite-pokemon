@@ -1,5 +1,10 @@
 {
   "extends": "@snowpack/app-scripts-react",
-  "devOptions": {},
-  "installOptions": {}
+  "devOptions": {
+    "bundle": true
+  },
+  "installOptions": {},
+  "scripts": {
+    "build:css": "postcss"
+  }
 }
