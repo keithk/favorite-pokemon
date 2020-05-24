@@ -26,5 +26,8 @@
     "react-dom": "^16.13.0",
     "snowpack": "^2.0.0-rc.8",
     "tailwindcss": "^1.4.6"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }

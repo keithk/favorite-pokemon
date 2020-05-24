@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import useHash from '../hooks/useHash';
 import Pokemon from './Pokemon';
+import className from 'classnames';
 
-const defaultWidth = 'w-1/2 sm:w-1/2 md:w-48 lg:w-48';
+const defaultWidth = 'w-full';
 
 const initialState = {
-  loaded: false,
   width: defaultWidth,
   pokemon: false,
   chosen: null,
@@ -15,21 +15,18 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_POKEMON':
-      return { pokemon: action.payload };
-    case 'SET_LOADED':
-      return { loaded: !statetrue };
+      return { ...state, pokemon: action.payload };
     case 'SET_CHOSEN':
-      return { chosen: action.payload };
+      return { ...state, chosen: action.payload };
     case 'SET_OPEN':
-      return { openChoose: true, width: 'full' };
+      return { ...state, openChoose: true, width: 'full' };
     case 'SET_CLOSED':
-      return { openChoose: false, width: defaultWidth };
+      return { ...state, openChoose: false, width: defaultWidth };
   }
 };
 
-const Type = ({ name, changeUrl, chosen, pokemonData }) => {
+const Type = ({ name, pokemonData }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   const [hash, setHash] = useHash(name);
 
   useEffect(() => {
@@ -53,34 +50,42 @@ const Type = ({ name, changeUrl, chosen, pokemonData }) => {
   };
 
   const handleChoosePokemon = (pokemon) => {
-    setState({
-      ...state,
-      chosen: pokemon,
-      openChoose: false,
-      width: defaultWidth,
-    });
     dispatch({ type: 'SET_CHOSEN', payload: pokemon });
     dispatch({ type: 'SET_CLOSED' });
     setHash(pokemon.name);
   };
 
   const pokemon = state.pokemon;
-  if (!pokemon || !state.loaded) return null;
+  if (!pokemon) return null;
   // Order by the pokemon #
   pokemon.sort((a, b) => {
     return a.id - b.id;
   });
 
+  const classNames = className(state.width, 'bg-gray-100', '');
+  const buttonClassNames = className(
+    { striped: !state.chosen },
+    'w-100 text-gray-200 my-2 p-2 bg-gray-800 border border-grey-200 rounded cursor-pointer',
+  );
+
   return (
-    <div className={`${state.width} p-2 border border-gray-400 bg-gray-300`}>
-      <h2 className="py-1 text-2xl font-bold">{name}</h2>
+    <div className={classNames}>
+      <div className="flex justify-center">
+        <h2 className="text-xl font-bold">{name}</h2>
+        {state.chosen && (
+          <div className="text-right cursor-pointer w-full font-bold text-bold text-lg">
+            <button
+              onClick={handleResetPokemon}
+              className="px-1 bg-grey-light rounded bg-gray-800 text-gray-200 shadow-sm"
+            >
+              X
+            </button>
+          </div>
+        )}
+      </div>
       {state.chosen && (
         <div>
-          <Pokemon
-            choosePokemon={handleChoosePokemon}
-            details={state.chosen}
-            close={handleResetPokemon}
-          />
+          <Pokemon choosePokemon={handleChoosePokemon} details={state.chosen} />
         </div>
       )}
       {state.openChoose === true && (
@@ -99,10 +104,7 @@ const Type = ({ name, changeUrl, chosen, pokemonData }) => {
       )}
 
       {!state.chosen && (
-        <div
-          className="w-100 text-gray-800 my-2 p-2 bg-gray-100 border border-grey-200 rounded cursor-pointer"
-          onClick={() => handleClickOpen()}
-        >
+        <div className={buttonClassNames} onClick={() => handleClickOpen()}>
           choose 🔮
         </div>
       )}

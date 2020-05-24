@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.striped {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jZ3MOw6AMAyD4R/5JByq4v5L507MLEFCpY8kXhIP/gRcwA00EpGNC1AziGxUs4jsphF9/hSiroeRHggjIyCEzAA3sgJcyA7YIh5giXiBKRIBhkgU+CFHAnhzAuUBb3g5IHWhKbwAAAAASUVORK5CYII=);
+  box-sizing: border-box;
+  background-size: 8px;
+}

@@ -21,8 +21,8 @@ const getPokemonFromUrl = (type = 'Normal') => {
 const Types = ({ changeUrl }) => {
   const [state, setState] = useState({ types: [] });
   return (
-    <div className="p-2">
-      <div className="flex flex-wrap -mx-2">
+    <div className="">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-1">
         {types.map((type) => {
           return (
             <Type
