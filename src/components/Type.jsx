@@ -29,7 +29,7 @@ const Type = ({ name, pokemonData, backgroundColor, type }) => {
   useEffect(() => {
     const type = name;
     const pokemonOfThisType = pokemonData.filter((p) => {
-      if (p.name === hash) {
+      if (p.id == hash) {
         dispatch({ type: 'SET_CHOSEN', payload: p });
       }
       return p.types.includes(type);
@@ -49,7 +49,7 @@ const Type = ({ name, pokemonData, backgroundColor, type }) => {
   const handleChoosePokemon = (pokemon) => {
     dispatch({ type: 'SET_CHOSEN', payload: pokemon });
     dispatch({ type: 'SET_CLOSED' });
-    setHash(pokemon.name);
+    setHash(pokemon.id);
   };
 
   const pokemon = state.pokemon;
@@ -63,10 +63,9 @@ const Type = ({ name, pokemonData, backgroundColor, type }) => {
     {
       'col-span-2 md:col-span-6': state.openChoose,
     },
-    'w-full',
-    'bg-gray-100',
-    'p-2',
+    'w-full bg-gray-100 p-2',
   );
+
   const buttonClassNames = className(
     { striped: !state.chosen },
     'w-100 text-gray-200 my-2 p-2 bg-gray-800 border border-grey-200 rounded cursor-pointer',
